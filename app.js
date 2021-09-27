@@ -23,5 +23,7 @@ window.addEventListener('keypress',(e)=>{
         game.makeGuess(guess)
         render_puzzle(game) 
     }
+    console.log(game.status)
+    console.log(message)
 })
 
