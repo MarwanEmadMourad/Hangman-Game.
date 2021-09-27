@@ -1,10 +1,4 @@
-const messages = ["That's Correct.",
-"That's not quite right.",
-"Sorry, you ran out of guesses.",
-"Well Done, You made it."]
-
-let message = ''
-
+'use strict'
 class hangman {
     constructor(word, remainingGuesses) {
         this.char_word = word.toLowerCase().split('')
@@ -34,16 +28,20 @@ class hangman {
             }
         }
         if ( this.getPuzzle().includes('*') === false){
-            message = messages[3]
             this.status = 'Finshed'
         } else if ( (!this.remained) && this.getPuzzle().includes('*') === true) {
-            message = messages[2]
             this.status = 'Failed' 
-        } else if (isBadGuess){
-            message = messages[1] 
-        } else if((!isBadGuess)){
-            message = messages[0]
         } 
+    }
+    getMessageStatus(){
+        if (this.status === 'Playing'){
+            return `Guesses Left: ${this.remained}.`
+        } else if (this.status === 'Finshed'){
+            return 'Well done you guessed it right.'
+        } else {
+            const word = this.char_word.join('')
+            return `Sorry you ran out of guesses, the word was "${word}". `
+        }
     }
 }
 
