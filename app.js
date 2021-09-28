@@ -9,8 +9,8 @@ const render_puzzle = (game) =>{
     const word_p = document.createElement('p')
     const messageStatus = document.createElement('p') 
 
-    word_p.textContent = game.getPuzzle() 
-    messageStatus.textContent = game.getMessageStatus() 
+    word_p.textContent = game.Puzzle 
+    messageStatus.textContent = game.MessageStatus 
 
     game_div.appendChild(word_p)
     game_div.appendChild(messageStatus)
