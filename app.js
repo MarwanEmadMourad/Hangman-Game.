@@ -1,4 +1,4 @@
-const game = new hangman("New JersEy",5)
+const game = new hangman("FUCKED UP",5)
 // console.log(game.getPuzzle()) 
 // console.log(game.remained) 
 
@@ -26,3 +26,14 @@ window.addEventListener('keypress',(e)=>{
     // console.log(game.status)
 })
 
+// making HTTP (Hyper Text Transfer Protocol) request
+const request = new XMLHttpRequest()
+request.open('GET','https://puzzle.mead.io/puzzle')
+request.send()
+
+request.addEventListener('readystatechange',(e)=>{
+    if (e.target.readyState === 4){
+        const data = JSON.parse(e.target.responseText)
+        console.log(data)
+    }
+})

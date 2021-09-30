@@ -6,6 +6,7 @@ class hangman {
         this.remained = remainingGuesses
         this.status = 'Playing'
     }
+    // custom getter
     get Puzzle() {
         let _Puzzle = ''
         this.char_word.forEach(curr_letter => {
@@ -33,11 +34,12 @@ class hangman {
             this.status = 'Failed' 
         } 
     }
+    // custom getter
     get MessageStatus(){
         if (this.status === 'Playing'){
             return `Guesses Left: ${this.remained}.`
         } else if (this.status === 'Finshed'){
-            return 'Well done you guessed it right.'
+            return 'Well done, you guessed it right.'
         } else {
             const word = this.char_word.join('')
             return `Sorry you ran out of guesses, the word was "${word}". `
