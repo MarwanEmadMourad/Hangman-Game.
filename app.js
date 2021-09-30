@@ -27,13 +27,29 @@ window.addEventListener('keypress',(e)=>{
 })
 
 // making HTTP (Hyper Text Transfer Protocol) request
-const request = new XMLHttpRequest()
-request.open('GET','https://puzzle.mead.io/puzzle')
-request.send()
+// const request = new XMLHttpRequest()
+// request.open('GET','https://puzzle.mead.io/puzzle')
+// request.send()
 
-request.addEventListener('readystatechange',(e)=>{
-    if (e.target.readyState === 4){
-        const data = JSON.parse(e.target.responseText)
-        console.log(data)
+// request.addEventListener('readystatechange',(e)=>{
+//     if (e.target.readyState === 4){
+//         const data = JSON.parse(e.target.responseText)
+//         console.log(data)
+//     }
+// })
+
+
+// section challenge ---- fetching data from an api 
+const code = 'US'
+const request = new XMLHttpRequest()
+request.open('GET','http://restcountries.eu/rest/v2/all')
+request.send() 
+
+request.addEventListener('readystatechange' , (e)=>{
+    if (e.target.readystate === 4 && e.target.status == 200){
+        const countries = JSON.parse(e.target.responseText)
+        const country = countries.find((country)=> country.alpha2code === code)
+        console.log(country.name)
     }
 })
+
