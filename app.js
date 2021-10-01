@@ -1,13 +1,5 @@
 const game = new hangman("FUCKED UP",5)
 
-// caling our callback function
-getNewPuzzle((error,puzzle)=>{
-    if(error)
-        console.log(`Error: ${error}`)
-    else
-        console.log(puzzle)
-})
-
 const render_puzzle = (game) =>{
     const game_div = document.getElementById("Game-Area")
     game_div.innerHTML = '' 
@@ -29,7 +21,6 @@ window.addEventListener('keypress',(e)=>{
         game.makeGuess(guess)
         render_puzzle(game) 
     }
-    // console.log(game.status)
 })
 
 
