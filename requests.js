@@ -23,11 +23,9 @@ const getPuzzle = (wordCount) => new Promise ((resolve,reject) =>{
 getPuzzle('5').then(
     (data)=>{
         console.log(data)
-    } ,
-    (err)=>{
-        console.log(err)
-    }
-)
+}).catch((err)=>{
+    console.log(err)
+}) 
 
 
 
