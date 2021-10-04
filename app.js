@@ -1,34 +1,25 @@
-const game = new hangman("FUCKED UP",5)
+let game 
+const wordEl = document.getElementById("word")
+const messageEl = document.getElementById("message")
 
-getPuzzle('4').then((puzzle)=>{
-    console.log(puzzle)
-}).catch((err) =>{
-    console.log(err)
-})
-
-const render_puzzle = (game) =>{
-    const game_div = document.getElementById("Game-Area")
-    game_div.innerHTML = '' 
-
-    const word_p = document.createElement('p')
-    const messageStatus = document.createElement('p') 
-
-    word_p.textContent = game.Puzzle 
-    messageStatus.textContent = game.MessageStatus 
-
-    game_div.appendChild(word_p)
-    game_div.appendChild(messageStatus)
-}
-
-render_puzzle(game)
 window.addEventListener('keypress',(e)=>{
-    if (game.remained){
-        const guess = String.fromCharCode(e.charCode)
-        game.makeGuess(guess)
-        render_puzzle(game) 
-    }
+    const guess = String.fromCharCode(e.charCode)
+    game.makeGuess(guess)
+    render_puzzle() 
 })
 
+const startGame = async () =>{
+    const puzzle = await getPuzzle('2') 
+    game = new hangman(puzzle,5)
+    render_puzzle()
+}
+startGame()
 
+const render_puzzle = () =>{
+    wordEl.textContent = game.Puzzle 
+    messageEl.textContent = game.MessageStatus 
+}   
+
+document.getElementById("reset-button").addEventListener('click', startGame)
 
 
