@@ -1,5 +1,11 @@
 const game = new hangman("FUCKED UP",5)
 
+getPuzzle('4').then((puzzle)=>{
+    console.log(puzzle)
+}).catch((err) =>{
+    console.log(err)
+})
+
 const render_puzzle = (game) =>{
     const game_div = document.getElementById("Game-Area")
     game_div.innerHTML = '' 
