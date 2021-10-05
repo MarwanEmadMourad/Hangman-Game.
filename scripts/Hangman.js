@@ -42,7 +42,7 @@ class hangman {
             return 'Well done, you guessed it right.'
         } else {
             const word = this.char_word.join('')
-            return `Sorry you ran out of guesses, the word was "${word}". `
+            return `Nice Try ! ... the word was "${word.toUpperCase()}". `
         }
     }
 }

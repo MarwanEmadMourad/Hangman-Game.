@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>HANGMAN GAME.</h1>
-    <p id = "word"></p>
-    <p id = "message"></p>
-    <button id ="reset-button"> New Game</button>
-    <script src="requests.js"></script>
-    <script src = "Hangman.js"></script>
-    <script src = "app.js"></script>
-</body>
+
+<html>
+    <head>
+        <title>Hangman</title>
+        <link rel="stylesheet" href="/styles/style.css">
+        <link href="/images/h.png" rel="icon" >
+    </head>
+    <body>
+        <div>
+            <h1 id="game-title">HANGMAN GAME.</h1>
+            <div id = "word"></div>
+            <p id = "message"></p>
+            <button id = "reset-button"> New Game</button>
+        </div>
+        <script src="scripts/requests.js"></script>
+        <script src = "scripts/Hangman.js"></script>
+        <script src = "scripts/app.js"></script>
+    </body>
 </html>
