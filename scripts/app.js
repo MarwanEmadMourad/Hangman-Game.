@@ -4,8 +4,11 @@ const messageEl = document.getElementById("message")
 
 window.addEventListener('keypress',(e)=>{
     const guess = String.fromCharCode(e.charCode)
-    game.makeGuess(guess)
-    render_puzzle() 
+    if (game.remained)
+    {
+        game.makeGuess(guess)
+        render_puzzle() 
+    }
 })
 
 const startGame = async () =>{
